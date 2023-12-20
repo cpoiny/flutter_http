@@ -4,51 +4,52 @@ import 'package:flutter_http/services/student.service.dart';
 
 
 
-
 // 5 - Créer le composant stateful permettant l'utilisation des models 
 
-class StudentLister extends StatefulWidget {
-  const StudentLister({super.key});
+class StudentsLister extends StatefulWidget {
+  const StudentsLister({super.key});
+
 
   @override
-  State<StudentLister> createState() => _StudentListerState();
+  State<StudentsLister> createState() => _StudentsListerState();
 }
 
-class _StudentListerState extends State<StudentLister> {
+class _StudentsListerState extends State<StudentsLister> {
 
 //Données dont on a besoin
-late Future<Student?> student;
+late Future<StudentList?> students;
 
 // Methode init()
 @override
 void initState(){
   super.initState();
-  loadStudent();
+  loadStudents();
 }
 
-void loadStudent(){
+void loadStudents(){
   setState((){
     // on peut appeler notre ProductService et notre methode car ils sont en static dans la classe donc accessible ici
-  student = StudentService.getStudent();
+  students = StudentService.getStudents();
   });
 }
 
 
 
-@override
+  @override
   Widget build(BuildContext context) {
 
     // Widget FutureBuilder => pour afficher des données
     return FutureBuilder(
-      future: student, 
+      future: students, 
       builder: (context, snapshot){
         // les données sont arrivées sans erreur
         if(snapshot.hasData){
-          Student student = snapshot.data!;
+          List<Student> students = snapshot.data!.students;
           return ListView.builder(
-            itemCount: 1,
+            itemCount: snapshot.data!.students.length,
             itemBuilder: (context, index){
-             
+              Student student = students[index];
+
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Card(

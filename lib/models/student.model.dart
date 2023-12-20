@@ -18,6 +18,7 @@ class Student
   final List<String> matieres;
   final List<double> notes;
 
+
 // On utilise factory pour créer une map de string dynamic qu'on appelle json
 // On vient de fabriquer des objets de type Product
 
@@ -49,9 +50,24 @@ class Student
   List<String> get getMatieres => matieres;
   List<double> get getNotes => notes;
 
+}
 
 
+// La classe la moins imbriquée
 
+class StudentList{
+
+  // constructeur
+  StudentList({required this.students});
+
+  final List<Student> students;
+
+  factory StudentList.fromJson(List<dynamic> parseJson) {
+    List <Student> students = <Student>[];
+    // 2. Appel Product en fromJson
+    students = parseJson.map((s) => Student.fromJson(s)).toList();
+    return StudentList(students : students);
+  }
 }
 
 

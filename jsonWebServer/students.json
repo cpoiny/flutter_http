@@ -1,0 +1,14 @@
+[
+    {
+    "nom": "King",
+    "prenom": "Kong",
+    "matieres": ["foresterie", "escalade urbaine"],
+    "notes": [18.8, 19.9]
+  } ,
+  {
+    "nom": "Peter",
+    "prenom": "Pan",
+    "matieres": ["vols internationaux", "anti-piraterie"],
+    "notes": [15.4, 17.2]
+  }
+]

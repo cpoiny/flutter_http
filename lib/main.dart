@@ -76,74 +76,108 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Page d'accueil"),
       ),
-      body: Column(
-        
-        children: <Widget>[
-         ElevatedButton(
-          onPressed:() {
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProductPage()),
-                );
-          },
-          style: const ButtonStyle(
-            
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const SizedBox(height: 20),
+           ElevatedButton(
+            onPressed:() {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                  );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.pink
+            ),
+            child:const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text("Products",
+                style: TextStyle(color: Colors.white)),
+                Icon(
+                  Icons.chevron_right,
+                  color: Colors.white,
+                  ),
+              ],
+            ),
           ),
-          child:const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text("Products"),
-              Icon(
-                Icons.chevron_right,
-                ),
-            ],
+        const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed:() {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ArticlePage()),
+                  );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.amber
+            ),
+            child:const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text("Articles",
+                style: TextStyle(color: Colors.white)),
+                Icon(
+                  Icons.chevron_right,
+                  color: Colors.white,
+                  ),
+              ],
+            ),
           ),
-        ),
+        const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed:() {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StudentPage(all: false)),
+                  );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.lightBlue
+            ),
+            child:const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text("Student",
+                style: TextStyle(color: Colors.white)),
+                Icon(
+                  Icons.chevron_right,
+                  color: Colors.white,
+                  ),
+              ],
+            ),
+          ),
 
 
-        ElevatedButton(
-          onPressed:() {
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ArticlePage()),
-                );
-          },
-          style: const ButtonStyle(
-            
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed:() {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  StudentPage(all: true)),
+                  );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue
+            ),
+            child:const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text("Students",
+                style: TextStyle(color: Colors.white)),
+                Icon(
+                  Icons.chevron_right,
+                  color: Colors.white,
+                  ),
+              ],
+            ),
           ),
-          child:const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text("Articles"),
-              Icon(
-                Icons.chevron_right,
-                ),
-            ],
-          ),
-        ),
-
-        ElevatedButton(
-          onPressed:() {
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const StudentPage()),
-                );
-          },
-          style: const ButtonStyle(
-            
-          ),
-          child:const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text("Student"),
-              Icon(
-                Icons.chevron_right,
-                ),
-            ],
-          ),
-        ),
-      ],
-    ),
+        ],
+            ),
+      ),
     );
   }
 }
