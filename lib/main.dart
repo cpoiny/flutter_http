@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_http/models/article.model.dart';
+import 'package:flutter_http/models/student.model.dart';
 import 'package:flutter_http/pages/article_page.dart';
 import 'package:flutter_http/pages/product_page.dart';
+import 'package:flutter_http/pages/student_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Page d'accueil"),
       ),
       body: Column(
+        
         children: <Widget>[
          ElevatedButton(
           onPressed:() {
@@ -119,6 +122,26 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
 
+        ElevatedButton(
+          onPressed:() {
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const StudentPage()),
+                );
+          },
+          style: const ButtonStyle(
+            
+          ),
+          child:const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text("Student"),
+              Icon(
+                Icons.chevron_right,
+                ),
+            ],
+          ),
+        ),
       ],
     ),
     );

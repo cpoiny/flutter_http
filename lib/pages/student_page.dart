@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_http/components/studentLister.dart';
 
 class StudentPage extends StatelessWidget {
   const StudentPage({super.key});
@@ -10,6 +11,7 @@ class StudentPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,  
         title: const Text("Un étudiant"),
       ),
+      body: const StudentLister(),
     );
   }
 }
